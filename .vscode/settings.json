@@ -1,0 +1,29 @@
+{
+  "files.exclude": {
+    "*.com": "explorerExcludedFiles",
+    "*.class": "explorerExcludedFiles",
+    "*.dll": "explorerExcludedFiles",
+    "*.exe": "explorerExcludedFiles",
+    "*.o": "explorerExcludedFiles",
+    "*.so": "explorerExcludedFiles",
+    "*.7z": "explorerExcludedFiles",
+    "*.dmg": "explorerExcludedFiles",
+    "*.gz": "explorerExcludedFiles",
+    "*.iso": "explorerExcludedFiles",
+    "*.jar": "explorerExcludedFiles",
+    "*.rar": "explorerExcludedFiles",
+    "*.tar": "explorerExcludedFiles",
+    "*.zip": "explorerExcludedFiles",
+    "node_modules/*": "explorerExcludedFiles",
+    "*.log": "explorerExcludedFiles",
+    "*.sql": "explorerExcludedFiles",
+    "*.sqlite": "explorerExcludedFiles",
+    ".DS_Store": "explorerExcludedFiles",
+    ".DS_Store?": "explorerExcludedFiles",
+    "._*": "explorerExcludedFiles",
+    ".Spotlight-V100": "explorerExcludedFiles",
+    ".Trashes": "explorerExcludedFiles",
+    "ehthumbs.db": "explorerExcludedFiles",
+    "Thumbs.db": "explorerExcludedFiles"
+  }
+}
