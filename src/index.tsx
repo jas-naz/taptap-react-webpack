@@ -20,3 +20,6 @@ ReactDOM.render(
     <App someDefaultValue="Jason" />,
     document.getElementById("example")
 );
+
+// https : //www.npmjs.com/package/react-touch
+// https://www.npmjs.com/package/react-touch-events
