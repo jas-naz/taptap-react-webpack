@@ -520,11 +520,25 @@ var Skills = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Skills.prototype.render = function () {
-        return (React.createElement("div", null, "This is the Skills pane"));
+        return (React.createElement("div", null,
+            React.createElement("div", null, "This is the Skills pane"),
+            React.createElement("div", { style: skillButtonStyle }, "Skill Button 1"),
+            React.createElement("div", { style: skillButtonStyle }, "Skill Button 2"),
+            React.createElement("div", { style: skillButtonStyle }, "Skill Button 3"),
+            React.createElement("div", { style: skillButtonStyle }, "Skill Button 4"),
+            React.createElement("div", { style: skillButtonStyle }, "Skill Button 5")));
     };
     return Skills;
 }(React.Component));
 exports.Skills = Skills;
+var skillButtonStyle = {
+    float: "left",
+    width: "19%",
+    backgroundColor: "gray",
+    color: "white",
+    border: "solid 1px white",
+    cursor: "pointer"
+};
 // export default Skills;
 
 
