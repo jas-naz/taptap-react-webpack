@@ -4,6 +4,7 @@ import * as React from 'react';
 export interface IAdProps {
 }
 
+// TODO: show for n seconds, then enable x button
 export class Ads extends React.Component<IAdProps, any> {
   render() {
     return (

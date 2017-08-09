@@ -6,6 +6,7 @@ import { LevelMap } from "./levelmap";
 import { LevelInfo } from "./levelinfo";
 import { Enemy } from "./enemy";
 import { EnemyStats } from "./enemystats";
+import { Skills } from "./skills";
 
 interface IAppComponentProps {
     someDefaultValue: string,
@@ -49,7 +50,7 @@ export class App extends React.Component<IAppComponentProps, IAppComponentState>
     public render() {
         return (
             <div>
-                <h1>Hello {this.state.someValue}
+                <h1>TapTap {this.state.someValue} 
                     from React/Typescript</h1>
                 <Ads />
                 <Stats
@@ -61,6 +62,7 @@ export class App extends React.Component<IAppComponentProps, IAppComponentState>
                 <LevelInfo/>
                 <Enemy coins={this.state.coins} onClick={this.handleEnemyClick}/>
                 <EnemyStats hpTotal={this.state.hpTotal} hpRemaining={this.state.hpRemaining}/>
+                <Skills/>
             </div>
         );
     }

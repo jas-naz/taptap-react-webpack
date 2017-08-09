@@ -87,7 +87,7 @@ var app_1 = __webpack_require__(3);
 var reducer = function () {
 };
 // const store = createStore(reducer, {});
-ReactDOM.render(React.createElement(app_1.App, { someDefaultValue: "Jason" }), document.getElementById("example"));
+ReactDOM.render(React.createElement(app_1.App, { someDefaultValue: "Jason " }), document.getElementById("example"));
 // https : //www.npmjs.com/package/react-touch
 // https://www.npmjs.com/package/react-touch-events 
 
@@ -122,6 +122,7 @@ var levelmap_1 = __webpack_require__(6);
 var levelinfo_1 = __webpack_require__(7);
 var enemy_1 = __webpack_require__(8);
 var enemystats_1 = __webpack_require__(9);
+var skills_1 = __webpack_require__(10);
 var coins = 8;
 var App = (function (_super) {
     __extends(App, _super);
@@ -172,7 +173,7 @@ var App = (function (_super) {
     App.prototype.render = function () {
         return (React.createElement("div", null,
             React.createElement("h1", null,
-                "Hello ",
+                "TapTap ",
                 this.state.someValue,
                 "from React/Typescript"),
             React.createElement(ads_1.Ads, null),
@@ -180,7 +181,8 @@ var App = (function (_super) {
             React.createElement(levelmap_1.LevelMap, null),
             React.createElement(levelinfo_1.LevelInfo, null),
             React.createElement(enemy_1.Enemy, { coins: this.state.coins, onClick: this.handleEnemyClick }),
-            React.createElement(enemystats_1.EnemyStats, { hpTotal: this.state.hpTotal, hpRemaining: this.state.hpRemaining })));
+            React.createElement(enemystats_1.EnemyStats, { hpTotal: this.state.hpTotal, hpRemaining: this.state.hpRemaining }),
+            React.createElement(skills_1.Skills, null)));
     };
     App.prototype.componentWillMount = function () {
         var coins;
@@ -227,6 +229,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
+// TODO: show for n seconds, then enable x button
 var Ads = (function (_super) {
     __extends(Ads, _super);
     function Ads() {
@@ -491,6 +494,38 @@ var hpbarBackgroundStyle = {
     height: "20px",
     backgroundColor: "black",
 };
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(0);
+var Skills = (function (_super) {
+    __extends(Skills, _super);
+    function Skills() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Skills.prototype.render = function () {
+        return (React.createElement("div", null, "This is the Skills pane"));
+    };
+    return Skills;
+}(React.Component));
+exports.Skills = Skills;
+// export default Skills;
 
 
 /***/ })

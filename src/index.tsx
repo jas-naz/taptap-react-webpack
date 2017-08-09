@@ -17,7 +17,7 @@ const reducer = function() {
 // const store = createStore(reducer, {});
 
 ReactDOM.render(
-    <App someDefaultValue="Jason" />,
+    <App someDefaultValue="Jason " />,
     document.getElementById("example")
 );
 
