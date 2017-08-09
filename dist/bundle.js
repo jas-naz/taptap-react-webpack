@@ -88,6 +88,8 @@ var reducer = function () {
 };
 // const store = createStore(reducer, {});
 ReactDOM.render(React.createElement(app_1.App, { someDefaultValue: "Jason" }), document.getElementById("example"));
+// https : //www.npmjs.com/package/react-touch
+// https://www.npmjs.com/package/react-touch-events 
 
 
 /***/ }),
@@ -114,15 +116,15 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var stats_1 = __webpack_require__(4);
-var levelmap_1 = __webpack_require__(5);
-var levelinfo_1 = __webpack_require__(6);
-var enemy_1 = __webpack_require__(7);
-var enemystats_1 = __webpack_require__(8);
+var ads_1 = __webpack_require__(4);
+var stats_1 = __webpack_require__(5);
+var levelmap_1 = __webpack_require__(6);
+var levelinfo_1 = __webpack_require__(7);
+var enemy_1 = __webpack_require__(8);
+var enemystats_1 = __webpack_require__(9);
 var coins = 8;
 var App = (function (_super) {
     __extends(App, _super);
-    // defaultState = { data: null, error: null };
     function App(props) {
         var _this = _super.call(this, props) || this;
         // const EnemyItem = ({...props}) => { return ( <Enemy {...props} /> )};
@@ -144,16 +146,21 @@ var App = (function (_super) {
             // if you want to do some magic stuff
             // alert("The Child HTML is: " + event.target.outerHTML);
             // this.setState({ coins: "50" });
-            // updateCoins();//Calculate enemy
+            // updateCoins();
+            var coins = _this.state.coins + 1;
+            //Calculate enemy
+            var hpRemaining = _this.state.hpRemaining - _this.state.dps;
+            if (hpRemaining < 0)
+                hpRemaining = 0;
             _this.setState({
-                coins: _this.state.coins + 1,
-                hpRemaining: _this.state.hpRemaining - _this.state.dps
+                coins: coins,
+                hpRemaining: hpRemaining
             });
             console.log("Enemy CLICKED: "); //+ this.state.coins
         };
         _this.state = {
             someValue: _this.props.someDefaultValue,
-            coins: 0,
+            coins: App.defaultProps.coins,
             dps: 100,
             souls: 0,
             hdp: 0,
@@ -162,6 +169,19 @@ var App = (function (_super) {
         };
         return _this;
     }
+    App.prototype.render = function () {
+        return (React.createElement("div", null,
+            React.createElement("h1", null,
+                "Hello ",
+                this.state.someValue,
+                "from React/Typescript"),
+            React.createElement(ads_1.Ads, null),
+            React.createElement(stats_1.Stats, { coins: this.state.coins, dps: this.state.dps, souls: this.state.souls, hdp: this.state.hdp }),
+            React.createElement(levelmap_1.LevelMap, null),
+            React.createElement(levelinfo_1.LevelInfo, null),
+            React.createElement(enemy_1.Enemy, { coins: this.state.coins, onClick: this.handleEnemyClick }),
+            React.createElement(enemystats_1.EnemyStats, { hpTotal: this.state.hpTotal, hpRemaining: this.state.hpRemaining })));
+    };
     App.prototype.componentWillMount = function () {
         var coins;
         // if (coins > 50) {
@@ -171,32 +191,69 @@ var App = (function (_super) {
         // } else {
         //     coins = '10';
         // }
-        coins = 0;
+        coins = this.state.coins;
         this.setState({ coins: coins });
     };
     App.prototype.updateCoins = function () {
         this.setState({ coins: 5 });
     };
-    App.prototype.render = function () {
-        return (React.createElement("div", null,
-            React.createElement("h1", null,
-                "Hello ",
-                this.state.someValue,
-                " from React/Typescript"),
-            React.createElement(stats_1.Stats, { coins: this.state.coins, dps: this.state.dps, souls: this.state.souls, hdp: this.state.hdp }),
-            React.createElement(levelmap_1.LevelMap, null),
-            React.createElement(levelinfo_1.LevelInfo, null),
-            React.createElement(enemy_1.Enemy, { coins: this.state.coins, onClick: this.handleEnemyClick }),
-            React.createElement(enemystats_1.EnemyStats, { hpTotal: this.state.hpTotal, hpRemaining: this.state.hpRemaining })));
+    // defaultState = { data: null, error: null };
+    App.defaultProps = {
+        coins: 5
     };
     return App;
 }(React.Component));
 exports.App = App;
-// App.defaultProps = { coins: "5" }
+// App.defaultProps : IAppComponentProps = {
+//     coins: "5"
+// }
 
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(0);
+var Ads = (function (_super) {
+    __extends(Ads, _super);
+    function Ads() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Ads.prototype.render = function () {
+        return (React.createElement("div", { style: adsStyle }, "This is an AD..."));
+    };
+    return Ads;
+}(React.Component));
+exports.Ads = Ads;
+var adsStyle = {
+    width: "400px",
+    height: "80px",
+    margin: "auto",
+    border: "solid 1px gray",
+    cursor: "pointer"
+};
+// const mapState2Props = state => {
+//   return {
+//   };
+// }
+// export default connect(mapState2Props)(App);
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -256,7 +313,7 @@ exports.Stats = Stats;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -287,7 +344,7 @@ exports.LevelMap = LevelMap;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -318,7 +375,7 @@ exports.LevelInfo = LevelInfo;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -335,14 +392,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var hits = 0;
-var textStyle = {
-    height: "155px",
-    color: 'black',
-    backgroundColor: "#efefef",
-    userSelect: "none",
-    cursor: "pointer"
-};
 var Enemy = (function (_super) {
     __extends(Enemy, _super);
     function Enemy(props) {
@@ -359,16 +408,31 @@ var Enemy = (function (_super) {
         return (React.createElement("div", { style: textStyle, onClick: this.props.onClick },
             "Enemy (hits ",
             this.props.coins,
-            ")"));
+            ")",
+            React.createElement("div", { style: characterStyle }, "Character")));
     };
     return Enemy;
 }(React.Component)); // <div style={ textStyle } onClick={this.handleClick.bind(this)}>
 exports.Enemy = Enemy;
-// export class Enemy = () => <div>Enemy</div>; onClick={ this.props.onClick } 
+// export class Enemy = () => <div>Enemy</div>; onClick={ this.props.onClick }
+var hits = 0;
+var textStyle = {
+    height: "155px",
+    color: 'black',
+    backgroundColor: "#efefef",
+    userSelect: "none",
+    cursor: "pointer"
+};
+var characterStyle = {
+    width: "155px",
+    height: "255px",
+    border: "solid 1px black",
+    margin: "auto"
+};
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -417,7 +481,7 @@ var EnemyStats = (function (_super) {
 exports.EnemyStats = EnemyStats;
 var enemyStatsStyle = {
     margin: "auto",
-    width: "300px"
+    width: "200px"
 };
 var hpbarStyle = {
     height: "100%",

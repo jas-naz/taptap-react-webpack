@@ -30,7 +30,7 @@ export class EnemyStats extends React.Component<IEnemyStatsProps, IEnemyStatsSta
 
 var enemyStatsStyle = {
     margin: "auto",
-    width: "300px"
+    width: "200px"
 }
 
 var hpbarStyle = {

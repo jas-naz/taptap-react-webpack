@@ -10,16 +10,6 @@ interface IEnemyState {
     coins: number
 }
 
-var hits: number = 0;
-
-var textStyle = {
-    height: "155px",
-    color: 'black',
-    backgroundColor: "#efefef",
-    userSelect: "none",
-    cursor: "pointer"
-};
-
 export class Enemy extends React.Component<IEnemyProps, IEnemyState> {
     constructor(props: IEnemyProps) {
         super(props);
@@ -36,8 +26,25 @@ export class Enemy extends React.Component<IEnemyProps, IEnemyState> {
         return(
             <div style={ textStyle }  onClick={ this.props.onClick }>
                 Enemy (hits { this.props.coins })
+                <div style={ characterStyle } >Character</div>
             </div>
         )
     }
 }// <div style={ textStyle } onClick={this.handleClick.bind(this)}>
 // export class Enemy = () => <div>Enemy</div>; onClick={ this.props.onClick }
+var hits : number = 0;
+
+var textStyle = {
+    height: "155px",
+    color: 'black',
+    backgroundColor: "#efefef",
+    userSelect: "none",
+    cursor: "pointer"
+};
+
+var characterStyle = {
+    width: "155px",
+    height: "255px",
+    border: "solid 1px black",
+    margin: "auto"
+};
