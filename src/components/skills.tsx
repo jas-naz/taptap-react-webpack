@@ -7,11 +7,11 @@ export class Skills extends React.Component<ISkillsProps, any> {
   render() {
     return (
       <div>
-        <div>This is the Skills pane</div>
-        <div style={ skillButtonStyle }>Skill Button 1</div>
-        <div style={ skillButtonStyle }>Skill Button 2</div>
-        <div style={ skillButtonStyle }>Skill Button 3</div>
-        <div style={ skillButtonStyle }>Skill Button 4</div>
+        <div>Skills pane</div>
+        <div style={ skillButtonStyle }>Heroes</div>
+        <div style={ skillButtonStyle }>Skills</div>
+        <div style={ skillButtonStyle }>Gems</div>
+        <div style={ skillButtonStyle }>Mercs</div>
         <div style={ skillButtonStyle }>Skill Button 5</div>
       </div>
     );
@@ -20,8 +20,8 @@ export class Skills extends React.Component<ISkillsProps, any> {
 
 const skillButtonStyle = {
     float: "left",
-    width: "19%",
-    backgroundColor: "gray",
+    width: "19.5%",
+    backgroundColor: "#ababab",
     color: "white",
     border: "solid 1px white",
     cursor: "pointer"
